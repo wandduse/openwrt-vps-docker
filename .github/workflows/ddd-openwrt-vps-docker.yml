@@ -2,12 +2,10 @@ name: Build OpenWrt Docker x86-64 image
 on:
   repository_dispatch:
   workflow_dispatch:
-
 env:
   FIRMWARE_URL: "https://downloads.openwrt.org/releases/19.07.2/targets/x86/64/openwrt-19.07.2-x86-64-generic-rootfs.tar.gz"
   REPOSITORY: wanuse/openwrt-x86-64
   TAG: 19.07.2
-
 jobs:
   build:
     name: "Build OpenWrt docker image"
@@ -15,7 +13,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
-
       - name: Download Firmware
         run: |
           wget $FIRMWARE_URL -O openwrt.tar.gz
